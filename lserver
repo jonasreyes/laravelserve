@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Realización de Jonás A. Reyes C. | jonasreyes@yandex.com
+# Octubre 2022
+# Tienes derecho a copiar, modificar, distribuir, etc. 
+# No olvides mencionar la fuente originaria del script:
+# https://github.com/jonasreyes
+
+# Requerimientos y Dependencias:
+# Debes tener instalado Laravel y AWK (por defecto en GNU/Linux)
+# Debes ejecutar este script desde la carpeta principal de tu Proyecto Laravel
+
+# Seleccionamos la interfaz de red de la que queremos obtener la IP
+LPORT="8000"
+INTERFACE='wlp2s0'
+
+# obtenemos la dirección IP
+MYIP=$(ifconfig $INTERFACE | grep 'inet' | awk  '{print $2; exit}')
+
+# armamos la IP para la app Laravel
+MY_LARAVEL_SERVE="$MYIP:$LPORT"
+# imprimimos la ip obtenida!
+echo "Tu proyecto Laravel estará accesible para tu Red Local en: $MY_LARAVEL_SERVE" 
+
+# comando Laravel
+php artisan serve --host=$MY_LARAVEL_SERVE
