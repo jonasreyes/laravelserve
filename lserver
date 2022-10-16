@@ -10,6 +10,31 @@
 # Debes tener instalado Laravel y AWK (por defecto en GNU/Linux)
 # Debes ejecutar este script desde la carpeta principal de tu Proyecto Laravel
 
+# Verificando que tengas instalados los paquetes necesarios
+. check_laravel_dependences.sh
+
+#Verificando que se esté ejecutando el Script desde el interior de un proyecto Laravel
+if [ -f './composer.json' ]; then
+  echo "----------------------------"
+  echo "  Ejecutando LaravelServe desde el interior de un proyecto Laravel."
+  echo "----------------------------"
+  if [ -f './vendor/bin/sail' ]; then
+    echo "----------------------------"
+    echo "  Su proyecto Laravel tiene instalado el servicio Sail."
+    echo "  Si lo desea puede arrancar su proyecto Laravel Sail y luego ejecute LaravelServe"
+    echo "  para que tenga ambos servicios funcionando al mismo tiempo. Es útil cuando requiere"
+    echo "  del uso de Sail para levantar un servicio de Base de Datos que no esté instalado de"
+    echo "  forma nativa en su sistema."
+    # ESAIL=$(./vendor/bin/sail up &)
+    echo "----------------------------"
+  fi
+else
+  echo "----------------------------"
+  echo "  Error: Para continuar debe ejecutar LaraveServe desde el interior de un proyecto Laravel."
+  echo "----------------------------"
+  exit 1
+fi
+
 # Seleccionamos la interfaz de red de la que queremos obtener la IP
 LPORT="8000"
 INTERFACE='wlp2s0'
@@ -19,6 +44,7 @@ MYIP=$(ifconfig $INTERFACE | grep 'inet' | awk  '{print $2; exit}')
 
 # Armamos la IP para la app Laravel
 MY_LARAVEL_SERVE="$MYIP:$LPORT"
+
 # Imprimimos la ip obtenida!
 echo "Tu proyecto Laravel estará accesible para tu Red Local en: $MY_LARAVEL_SERVE" 
 
