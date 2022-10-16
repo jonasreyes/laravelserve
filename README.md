@@ -8,15 +8,15 @@
 
 ## Requerimientos:
 - GNU/Linux (probado en Archlinux)
-- Instalado y configurado el entorno de desarrollo en Laravel.
+- Instálado y configurado el entorno de desarrollo en Laravel.
 
 ## Procedimiento para usar el script:
-1. Descarga los scripts `lserver` y `check_laravel_dependences.sh`.
-2. Asignale permiso de ejecución.
-3. Otorgales permisos de ejecución y copialos en tu directorio `~/.local/bin/`:
-- `$ chmod +x lserver check_laravel_dependences`.
+1. Descarga el script `lserver`.
+2. Asígnale permiso de ejecución:
+- `$ chmod +x lserver`.
+3. Cópialo en tu directorio `~/.local/bin/`:
 - `$ cp lserver check_laravel_dependences ~/.local/bin/`.
-4. Ejecútalo o invócalo desde el interior de tu proyecto Laravel: `~/TuProyectoLaravel/$ lserver`.
+4. Invoca **lserver** desde el interior de tu proyecto Laravel: `~/TuProyectoLaravel/$ lserver`.
 
 ## Скрипт для запуска вашего проекта Laravel на сервере, который разрешает доступ с других устройств в вашей локальной сети
 ## Функции:
@@ -30,12 +30,12 @@
 - Установил и настроил среду разработки в Laravel.
 
 ## Процедура использования скрипта:
-1. Загрузите скрипты `lserver` и `check_laravel_dependences.sh`.
-2. Дайте ему разрешение на выполнение.
-3. Дайте им права на выполнение и скопируйте их в каталог `~/.local/bin/`:
-- `$ chmod +x lserver check_laravel_dependences.`
-- `$ cp lserver check_laravel_dependences ~/.local/bin/.`
-4. Запустите его или вызовите из своего проекта Laravel: `~/YourLaravelProject/$ lserver`.
+1. Скачать сценарий `lserver`.
+2. Назначить разрешение на исполнение:
+- `$ chmod +x lserver`.
+3. Скопируйте его в свой каталог `~/.local/bin/`:
+- `$ cp lserver ~/.local/bin/.`
+4. Вызовите **lserver** из вашего проекта Laravel: `~/ваш_проект/$ lserver`.
 
 ## Script to launch your Laravel project on a server that allows access from other devices on your Local Network
 ## Features:
@@ -49,9 +49,9 @@
 - Installed and configured the development environment in Laravel.
 
 ## Procedure to use the script:
-1. Download the `lserver` and `check_laravel_dependences.sh` scripts.
-2. Give it execute permission.
-3. Give them execute permissions and copy them to your directory `~/.local/bin/`:
-- `$ chmod +x lserver check_laravel_dependences`.
-- `$ cp lserver check_laravel_dependences ~/.local/bin/`.
-4. Run it or call it from inside your Laravel project: `~/YourLaravelProject/$ lserver`.
+1. Download the `lserver` script.
+2. Assign execution permission.
+- `$ chmod +x lserver`.
+3. Copy it to your directory `~/.local/bin/`:
+- `$ cp lserver ~/.local/bin/`.
+4. Invoke **lserver** from inside your Laravel project: `~/YourLaravelProject/$ lserver`.
