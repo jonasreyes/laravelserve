@@ -14,13 +14,13 @@
 LPORT="8000"
 INTERFACE='wlp2s0'
 
-# obtenemos la dirección IP
+# Obtenemos la dirección IP
 MYIP=$(ifconfig $INTERFACE | grep 'inet' | awk  '{print $2; exit}')
 
-# armamos la IP para la app Laravel
+# Armamos la IP para la app Laravel
 MY_LARAVEL_SERVE="$MYIP:$LPORT"
-# imprimimos la ip obtenida!
+# Imprimimos la ip obtenida!
 echo "Tu proyecto Laravel estará accesible para tu Red Local en: $MY_LARAVEL_SERVE" 
 
-# comando Laravel
+# Comando Laravel
 php artisan serve --host=$MY_LARAVEL_SERVE
