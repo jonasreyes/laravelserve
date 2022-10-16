@@ -54,4 +54,4 @@
 3. Give them execute permissions and copy them to your directory `~/.local/bin/`:
 - `$ chmod +x lserver check_laravel_dependences`.
 - `$ cp lserver check_laravel_dependences ~/.local/bin/`.
-4. Run it or call it from inside your Laravel project: ~/YourLaravelProject/$ lserver.
+4. Run it or call it from inside your Laravel project: `~/YourLaravelProject/$ lserver`.
