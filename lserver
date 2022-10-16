@@ -46,7 +46,9 @@ MYIP=$(ifconfig $INTERFACE | grep 'inet' | awk  '{print $2; exit}')
 MY_LARAVEL_SERVE="$MYIP:$LPORT"
 
 # Imprimimos la ip obtenida!
-echo "Tu proyecto Laravel estará accesible para tu Red Local en: $MY_LARAVEL_SERVE" 
+  echo "----------------------------"
+  echo "  Tu proyecto Laravel estará accesible para tu Red Local en: $MY_LARAVEL_SERVE" 
+  echo "----------------------------"
 
 # Comando Laravel
 php artisan serve --host=$MY_LARAVEL_SERVE
