@@ -1,0 +1,95 @@
+#! /bin/env python3
+
+"""
+Función para la obtención de información de la plataforma, sistema operativo
+o entorno en el cual se generará el servidor para laravel
+Author: Jonás A. Reyes C.
+Date: 03-01-2023
+"""
+
+import os, platform, subprocess
+
+pcname = platform.node()
+print(f"PCName: {pcname}")
+
+psystem = platform.system()
+print(f"PCName: {psystem}")
+
+sistema = platform.uname()
+print(f"sistema: {sistema}")
+
+procesador = platform.processor()
+print(f"Procesador {platform.processor()}")
+
+arquitecture = platform.architecture()
+print(f"Arquitectura {platform.architecture()}")
+
+version = platform.version()
+print(f"Versión: {platform.version()}")
+
+release = platform.release()
+print(f"Release: {platform.release()}")
+
+# verificando directorios (existencia y tipo)
+
+
+archivos = [
+        '/opt/lampp/etc/httpd.conf',
+        '/opt/lampp/etc/php.ini',
+        '/opt/lampp/phpmyadmin/config.inc.php',
+        '/opt/lampp/etc/proftpd.conf',
+        '/opt/lampp/etc/my.cnf',
+        '/etc/hosts'
+        ]
+        
+aplicaciones = [
+				'php',
+				'mysql',
+				'composer',
+				'laravel',
+				'node',
+				'npm',	
+				'python3',
+                'xampp'
+				]
+
+"""
+Definiendo la función de verificación de existencia de directorios
+y archivos de configuración de xampp
+"""
+def verificar_archivos(archivos, msj):
+    print(f"  ------------------------------------------------------------")
+    print(f"\t{msj}:")
+    print(f"  ------------------------------------------------------------")
+
+    for archivo in archivos:
+        if os.path.exists(archivo):
+            print(f"\t-- OK! '{archivo}'.. verificado exitosamente!")
+        else:
+            print(f"\t-- ERROR! '{archivo}'.. no se encuentra el archivo en la ruta especificada!")
+
+    print('')
+    print(f"\tVerificados: {len(archivos)} archivos.")
+    print(f"  ------------------------------------------------------------")
+
+def verificar_app(apps, msj):
+
+    print('')
+    print(f"  ------------------------------------------------------------")
+    print(f"\t{msj}:")
+    print(f"  ------------------------------------------------------------")
+    for app in apps:
+        verificando_app = subprocess.run(['which',app], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        ruta_aplicacion = verificando_app.stdout.decode('utf-8')
+
+        if verificando_app.returncode != 0:
+            print(f"\t-- ERROR! '{app}' no se encuenta en el S.O.")
+        else:
+            print(f'\t-- OK! "{app}" instalado en la ruta { ruta_aplicacion }', end="")
+
+    print('')
+    print(f"\tVerificadas: {len(apps)} aplicaciones.")
+    print(f"  ------------------------------------------------------------")
+
+verificar_archivos(archivos, 'Verificando archivos genéricos del servidor LAMPP')
+verificar_app(aplicaciones, 'Verificando la instalación de APPS del entorno LAMPP')

@@ -1,4 +1,4 @@
-# Laravel Serve
+# LaraServe
 ## Script para levantar tu proyecto Laravel en un servidor que permite acceso desde otros dispositivos de tu Red Local
 ## Funcionalidades:
 - Verifica que tengas instaladas las Dependencias de Laravel.
